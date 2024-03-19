@@ -6,18 +6,21 @@ export default function Player({name, symbol}) {
 
     let playerName = <span className="player-name">{name}</span>;
     if (isEditing) {
-        playerName = <input type="text" required/>
+        playerName = <input type="text" required value={isName}/>
     }
 
 
     function handleEditClick(){
-        setIsEditing(true)
-        // isEditing ? setIsEditing(false) : setIsEditing(true);
-        // setIsName()
+        /**
+         * 위 코드를 아래 코드 대신 사용하는 이유
+         * 매우중요
+         */
+        setIsEditing((editing) => !editing)
+        // setIsEditing((!isEditing));
     }
     return (
         <li>
-            <span>
+            <span className="player">
                 {/*{!isEditing ? <span className="player-name">{name}</span>*/}
                 {/*: <input/>}*/}
                 {playerName}
